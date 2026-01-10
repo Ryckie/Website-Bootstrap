@@ -130,3 +130,7 @@ body {
     margin-left: 0;
   }
 }
+
+.carousel .carousel-item {
+  transition: transform 0.6s ease-in-out;
+}
