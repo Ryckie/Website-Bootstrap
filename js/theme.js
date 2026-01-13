@@ -37,12 +37,6 @@
       return;
     }
 
-    const themeIconMap = {
-      light: "./icons/brightness-high-fill.svg",
-      dark: "./icons/moon-stars-fill.svg",
-      auto: "./icons/circle-half.svg",
-    };
-
     const themeSwitcherText = document.querySelector("#bd-theme-text");
     const activeThemeIcon = document.querySelector(".theme-icon-active");
     const btnToActive = document.querySelector(
@@ -53,18 +47,18 @@
     document.querySelectorAll("[data-bs-theme-value]").forEach((element) => {
       element.classList.remove("active");
       element.setAttribute("aria-pressed", "false");
-      const checkIcon = element.querySelector(".check-icon");
+      const checkIcon = element.querySelector(".theme-check");
       if (checkIcon) {
-        checkIcon.style.display = "none";
+        checkIcon.classList.add("d-none");
       }
     });
 
     btnToActive.classList.add("active");
     btnToActive.setAttribute("aria-pressed", "true");
     activeThemeIcon.setAttribute("src", iconSrc);
-    const checkIcon = btnToActive.querySelector(".check-icon");
+    const checkIcon = btnToActive.querySelector(".theme-check");
     if (checkIcon) {
-      checkIcon.style.display = "inline";
+      checkIcon.classList.remove("d-none");
     }
     const themeSwitcherLabel = `${themeSwitcherText.textContent} (${btnToActive.dataset.bsThemeValue})`;
     themeSwitcher.setAttribute("aria-label", themeSwitcherLabel);
